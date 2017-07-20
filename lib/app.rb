@@ -14,18 +14,12 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    last_move = session[:last_move]
-    attack_confirmation = ''
-    if last_move == 'Attack'
-      attack_confirmation = "#{$game.player_1.name} has attacked #{$game.player_2.name}"
-    end
-    erb :play, { locals: { attack_confirmation: attack_confirmation } }
+    erb :play
   end
 
   post '/attacked' do
-    session[:last_move] = params[:attack]
     $game.attack($game.player_2)
-    redirect '/play'
+    erb :attack
   end
 
   run! if app_file == $0
