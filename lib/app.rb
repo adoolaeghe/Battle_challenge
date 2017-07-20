@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/player'
+require './lib/game'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -10,13 +11,12 @@ class Battle < Sinatra::Base
   post '/names' do
     $player_1 = Player.new(params[:player_1_name])
     $player_2 = Player.new(params[:player_2_name])
-    p $player_1
+    $game = Game.new
     redirect '/play'
   end
 
   get '/play' do
     $player_1_hp, $player_2_hp = $player_1.hp, $player_2.hp
-
     @player_1_name = $player_1.name
     @player_2_name = $player_2.name
     last_move = session[:last_move]
@@ -29,7 +29,7 @@ class Battle < Sinatra::Base
 
   post '/attacked' do
     session[:last_move] = params[:attack]
-    $player_2.attack_reduce
+    $game.attack($player_2)
     redirect '/play'
   end
 
