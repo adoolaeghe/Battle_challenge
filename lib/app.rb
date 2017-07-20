@@ -18,7 +18,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attacked' do
-    $game.attack($game.player_2)
+    $game.attack
     erb :attack
   end
 
