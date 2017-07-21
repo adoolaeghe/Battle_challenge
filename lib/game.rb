@@ -14,6 +14,15 @@ attr_accessor :current_victim
     switch_players
   end
 
+  def big_attack
+    @current_victim.big_attack
+    switch_players
+  end
+
+  def finish
+    @player_1.lose || @player_2.lose
+  end
+
 private
 
   def switch_players

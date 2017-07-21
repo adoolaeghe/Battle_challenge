@@ -1,5 +1,91 @@
-It's <%= $game.player_1.name %> vs. <%= $game.player_2.name %>!!!!
-<%= $game.player_1.name %>'s HP: <%= $game.player_1.hp %>  <%= $game.player_2.name %>'s HP: <%= $game.player_2.hp %>
-<form action="/attacked" method="post">
-  <input type="submit" name="attack" value="Attack" >
-</form>
+<head>
+  <style>
+  body {
+  background-color: white;
+  }
+  input {
+      width: 20%;
+      border: 1px solid darkgrey;
+      background-color: white
+  }
+
+
+  h1 {
+      color: white;
+      font-size: 300px;
+      position: relative;
+      left: 250px;
+      margin: 0px;
+  }
+  h2 {
+    color: white;
+    font-size: 50px;
+    position: relative;
+    left: 250px;
+  }
+
+  form {
+      color: white;
+      margin-left: 40px;
+      position: relative;
+      margin: 0px;
+      font-size: 40px;
+  }
+
+  input.big_attack_1 {
+    color: red
+  }
+  input.big_attack_2 {
+    color: red
+  }
+  </style>
+</head>
+
+<body>
+
+  <div style= 'text-align: center; font-size: 50px' >
+    <%= $game.player_1.name %> vs. <%= $game.player_2.name %>!!!!
+  </div>
+
+  <div style= 'text-align: center'>
+    <%= $game.current_victim.name %> turn
+  </div>
+
+  <div style= 'text-align: center; margin-right: 500px' >
+    <div>
+      <img src="http://agriculture.vic.gov.au/__data/assets/image/0011/182387/Image-6k-Other-pets-section_white-and-brown-rabbit.jpg" alt="LOOSE" style="width: 200px">
+      <div> </div>
+      <div style='font-size: 30px'>
+        <%= $game.player_1.name %>'s HP: <%= $game.player_1.hp %>
+      </div>
+      <form action="/attack_player_2" name="attack_2" method="post">
+        <input type="submit" value="Attack Player 2" >
+      </form>
+    </div>
+
+    <div>
+      <form action="/big_attack_player_2" name="big_attack_2" method="post">
+        <input class ="Big_attack_1" type="submit" value="Big Attack Player 2" >
+      </form>
+    </div>
+  </div>
+
+  <div style= 'text-align: center; margin-left: 500px'>
+    <div>
+      <img src="https://static.wixstatic.com/media/f5051e_605ec95e131046eaaf87cddcaf9362c3~mv2_d_3100_2382_s_2.jpg_srz_3100_2382_85_22_0.50_1.20_0.00_jpg_srz" alt="LOOSE" style="width:300px">
+      <div> </div>
+      <div style='font-size: 30px'>
+        <%= $game.player_2.name %>'s HP: <%= $game.player_2.hp %>
+      </div>
+      <form action="/attack_player_1" name="attack_1" method="post">
+        <input type="submit" value="Attack Player 1" >
+      </form>
+    </div>
+
+    <div>
+      <form action="/big_attack_player_1" name="big_attack_1" method="post">
+        <input class ="Big_attack_2" type="submit" value="Big Attack Player 1" >
+      </form>
+    </div>
+  </div>
+</body>

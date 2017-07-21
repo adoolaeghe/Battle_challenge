@@ -1,14 +1,56 @@
+<head>
+<style>
+body {
+background-image: url(http://i.dailymail.co.uk/i/pix/2013/08/13/article-2392031-1B46CBF4000005DC-181_1024x615_large.jpg);
+background-size: 100% 100%;
+background-repeat: no-repeat;
+}
+input {
+    width: 20%;
+    border: 1px solid darkgrey;
+    background-color: white;
+}
 
-<h1>Battle!</h1>
+
+h1 {
+    color: maroon;
+    font-size: 70px;
+    position: relative;
+    left: 250px;
+    margin: 0px;
+}
+h2 {
+  color: black;
+  font-size: 50px;
+  position: relative;
+  left: 250px;
+}
+
+form {
+    color: black;
+    margin-left: 40px;
+    position: relative;
+    left: 250px;
+    margin: 0px;
+    font-size: 40px;
+}
+</style>
+</head>
+<body>
+<h1>The Tortoise and the Hare</h1>
+<div style='height: 300px'> </div>
 <h2>Sign in to play</h2>
 <form action="/names" method="post">
   <label for="player_1_name">
-    Player 1 name
+    Hare's name
     <input type="text" name="player_1_name">
+    <div> </div>
   </label>
   <label for="player_1_name">
-    Player 2 name
+    Turtoise's name
     <input type="text" name="player_2_name">
+    <div></div>
   </label>
-  <input type="submit" value="Submit">
+  <input class="submit" type="submit" value="Submit">
 </form>
+</body>

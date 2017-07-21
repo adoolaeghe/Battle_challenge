@@ -14,12 +14,32 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    erb :play
+    p $game.finish
+    if $game.finish
+      erb :loose
+    else
+      erb :play
+    end
   end
 
-  post '/attacked' do
-    $game.attack
-    erb :attack
+  post '/attack_player_2' do
+    $game.attack if $game.current_victim == $game.player_2
+    redirect '/play'
+  end
+
+  post '/attack_player_1' do
+    $game.attack if $game.current_victim == $game.player_1
+    redirect '/play'
+  end
+
+  post '/big_attack_player_1' do
+    $game.big_attack if $game.current_victim == $game.player_1
+    redirect '/play'
+  end
+
+  post '/big_attack_player_2' do
+    $game.big_attack if $game.current_victim == $game.player_2
+    redirect '/play'
   end
 
   run! if app_file == $0
