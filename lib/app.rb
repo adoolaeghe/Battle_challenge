@@ -14,9 +14,10 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    p $game.finish
-    if $game.finish
-      erb :loose
+    if $game.finish_player_1
+      erb :loose_player_1
+    elsif  $game.finish_player_2
+      erb :loose_player_2
     else
       erb :play
     end

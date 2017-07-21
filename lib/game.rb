@@ -19,9 +19,14 @@ attr_accessor :current_victim
     switch_players
   end
 
-  def finish
-    @player_1.lose || @player_2.lose
+  def finish_player_1
+    @player_1.lose
   end
+
+  def finish_player_2
+    @player_2.lose
+  end
+
 
 private
 

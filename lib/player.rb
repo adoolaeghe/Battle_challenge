@@ -10,11 +10,11 @@ class Player
     hp <= 0
   end
 
-  def attack_reduce(damage = rand(1..10))
+  def attack_reduce(damage = rand(1..100))
     @hp -= damage
   end
 
-  def big_attack(damage = rand(1..10))
+  def big_attack(damage = rand(20..30))
     @hp -= damage
     @attacks -= 1
   end
